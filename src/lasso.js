@@ -47,8 +47,9 @@ export default function() {
         var dragAction = drag.drag()
             .on("start",dragstart)
             .on("drag",dragmove)
-            .on("end",dragend);
-
+            .on("end",dragend)
+            .filter(x => {return !d3.event.button});
+        
         // Call drag
         targetArea.call(dragAction);
 
